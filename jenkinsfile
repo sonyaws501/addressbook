@@ -1,0 +1,19 @@
+pipeline {
+   agent any 
+   tools {
+        // 'M3' must match the name configured in Manage Jenkins -> Global Tool Configuration
+        maven 'maven3' 
+    }
+   stages {
+     stage ("checkout") {
+      steps {
+       checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-cred', url: 'https://github.com/sonyaws501/addressbook.git']])
+      }
+    }
+      stage('Build') {
+            steps {
+                 sh 'mvn clean package'
+            }
+        }
+    }
+}
