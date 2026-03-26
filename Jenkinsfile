@@ -6,7 +6,7 @@ pipeline {
 //   tools {
 //        // 'M3' must match the name configured in Manage Jenkins -> Global Tool Configuration
 //        maven 'maven3' 
-    }
+//    }
    stages {
      stage ("checkout") {
       steps {
