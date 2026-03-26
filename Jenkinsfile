@@ -18,10 +18,10 @@ pipeline {
                  sh 'mvn clean package'
             }
         }
-       stage('Build Image') {
-            steps {
-                script { dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}") }
-            }
-        }    
+//       stage('Build Image') {
+//            steps {
+//                script { dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}") }
+//            }
+//        }    
 }
 }
