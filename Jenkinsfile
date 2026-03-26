@@ -3,9 +3,9 @@ pipeline {
    environment {
         IMAGE_NAME = 'your-dockerhub-user/your-app'
     }
-   tools {
-        // 'M3' must match the name configured in Manage Jenkins -> Global Tool Configuration
-        maven 'maven3' 
+//   tools {
+//        // 'M3' must match the name configured in Manage Jenkins -> Global Tool Configuration
+//        maven 'maven3' 
     }
    stages {
      stage ("checkout") {
