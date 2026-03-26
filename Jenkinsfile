@@ -3,10 +3,10 @@ pipeline {
    environment {
         IMAGE_NAME = 'your-dockerhub-user/your-app'
     }
-   tools {
+   //tools {
        // 'M3' must match the name configured in Manage Jenkins -> Global Tool Configuration
-        maven 'vnd' 
-    }
+   //     maven 'vnd' 
+   // }
    stages {
      stage ("checkout") {
       steps {
@@ -15,7 +15,7 @@ pipeline {
     }
       stage('Build') {
             steps {
-                 sh 'vnd clean package'
+                 sh '/opt/maven/bin/mvn clean package'
             }
         }
 //       stage('Build Image') {
