@@ -1,27 +1,26 @@
 pipeline {
    agent any
    environment {
-        IMAGE_NAME = 'your-dockerhub-user/your-app'
+        //IMAGE_NAME = 'your-dockerhub-user/your-app'
+        //DOCKER_IMAGE_NAME = 'my-app-image'
+        DOCKER_IMAGE_TAG = "myuser/my-app:latest"
     }
-   //tools {
-       // 'M3' must match the name configured in Manage Jenkins -> Global Tool Configuration
-   //     maven 'vnd' 
-   // }
    stages {
      stage ("checkout") {
       steps {
        checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-cred', url: 'https://github.com/sonyaws501/addressbook.git']])
       }
     }
-      stage('Build') {
+     stage('Build') {
             steps {
                  sh '/opt/maven/bin/mvn clean package'
             }
         }
-//       stage('Build Image') {
-//            steps {
-//                script { dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}") }
-//            }
-//        }    
-}
+     stage('Build Image') {
+           steps {
+               sh 'whoami'
+               sh 'docker build . -t ${DOCKER_IMAGE_TAG}'
+            }
+        }    
+    }
 }
