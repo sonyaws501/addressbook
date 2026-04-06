@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addressbook-deployment
+  labels:
+    app: addressbook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: addressbook
+  template:
+    metadata:
+      labels:
+        app: addressbook
+    spec:
+      containers:
+      - name: addressbook-container
+        # Replace <YOUR_REGISTRY> with your actual Docker registry (e.g., Docker Hub username)
+        image: vnddocker501/pipeline-itrack:latest
+        ports:
+        - containerPort: 8080
