@@ -41,6 +41,8 @@ pipeline {
        steps {
          sh 'gcloud config set project vinodlearning-489104'
 		 sh 'gcloud container clusters get-credentials itrack-dev-vnd --zone us-central1-a --project vinodlearning-489104'
+		 sh 'kubectl apply -f kubernetes/Deployment.yml
+		 sh 'kubectl apply -f kubernetes/Service.yml
        }
      }
    }
