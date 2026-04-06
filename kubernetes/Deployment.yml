@@ -17,6 +17,6 @@ spec:
       containers:
       - name: addressbook-container
         # Replace <YOUR_REGISTRY> with your actual Docker registry (e.g., Docker Hub username)
-        image: vnddocker501/pipeline-itrack:latest
+        image: docker.io/vnddocker501/pipeline-itrack:latest
         ports:
         - containerPort: 8080
